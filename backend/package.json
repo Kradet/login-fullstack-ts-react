@@ -7,7 +7,7 @@
     "build": "tsc",
     "start": "ts-node src/index.ts",
     "dev": "nodemon src/index.ts --exec ts-node",
-    "production":"node run dist/index.js"
+    "production": "node run dist/index.js"
   },
   "keywords": [],
   "author": "",

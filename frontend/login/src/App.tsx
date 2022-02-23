@@ -15,7 +15,7 @@ export function App() {
 				<Route path="/registro" element={<Registro />} />
 				<Route path="/login" element={<Login />} />
 				<Route path ="/contenido" element={<Contenido />} />
-				<Route path="*" element={<h1>Página no encontrada</h1>} />
+				<Route path="/*" element={<h1>Página no encontrada</h1>} />
 			</Routes>
 		</BrowserRouter>
 	);
