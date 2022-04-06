@@ -1,0 +1,12 @@
+# Manejado de problema 404
+ErrorDocument 404 /index.html
+# Quitar el indexes o error 403
+Options -Indexes
+ErrorDocument 403 /index.html
+
+#Opciones de rewrites
+RewriteEngine On  
+  RewriteCond %{DOCUMENT_ROOT}%{REQUEST_URI} -f [OR]
+  RewriteCond %{DOCUMENT_ROOT}%{REQUEST_URI} -d
+  RewriteRule ^ - [L]
+  RewriteRule ^ /index.html [L]

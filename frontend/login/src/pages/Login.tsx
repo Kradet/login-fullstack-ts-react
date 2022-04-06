@@ -1,5 +1,7 @@
 import { ChangeEvent, useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
+import "../styles/login.css";
+import { RiLoginCircleFill } from "react-icons/ri";
 import {
 	ObtenerDatosLocales,
 	GuardarDatosLocales,
@@ -44,15 +46,16 @@ export function Login() {
 			.then((res) => console.log(res[0])); */
 
 		const respuesta = await fetch(
-			`http://localhost:4000/api/${datos.username}/${datos.password}`
+			/* `http://localhost:4000/api/${datos.username}/${datos.password}` */
+			`${process.env.REACT_APP_API}/${datos.username}/${datos.password}`
 		);
 
 		if (respuesta.status === 404) {
 			alert("Usuario o contraseña incorrectos");
 			return;
 		}
-		
-		const [usuario,] = await respuesta.json();
+
+		const [usuario] = await respuesta.json();
 		//console.log(usuario);
 
 		GuardarDatosLocales("usuario", {
@@ -69,28 +72,57 @@ export function Login() {
 
 	return (
 		<>
-			<h1>Iniciar sesión</h1>
-			<form action="" method="post" onSubmit={handleLogin}>
-				<div className="">
-					<label htmlFor="username">Nombre de usuario</label>
-					<input
-						type="text"
-						id="username"
-						name="username"
-						onChange={handleChange}
-					/>
-				</div>
-				<div className="">
-					<label htmlFor="password">Contraseña</label>
-					<input
-						type="password"
-						id="password"
-						name="password"
-						onChange={handleChange}
-					/>
-				</div>
-				<button type="submit">Iniciar sesión</button>
-			</form>
+			<div className="ImgTarjeta">
+				<div className="ImgSide"></div>
+				<form
+					action=""
+					method="post"
+					onSubmit={handleLogin}
+					className="Form"
+				>
+					<h1 className="FormText">
+						<RiLoginCircleFill /> Iniciar sesión
+					</h1>
+					<div className="FormLabelContainer">
+						<div className="FormLabel">
+							<label
+								htmlFor="username"
+								className="FormText FormTextLabel"
+							>
+								Nombre de usuario
+							</label>
+							<br />
+							<input
+								type="text"
+								id="username"
+								name="username"
+								onChange={handleChange}
+								className="FormLabelInput"
+							/>
+						</div>
+						<div className="FormLabel">
+							<label
+								htmlFor="password"
+								className="FormText FormTextLabel"
+							>
+								Contraseña
+							</label>
+							<br />
+							<input
+								type="password"
+								id="password"
+								name="password"
+								onChange={handleChange}
+								className="FormLabelInput"
+							/>
+						</div>
+					</div>
+
+					<button type="submit" className="Btn BtnText">
+						Iniciar sesión
+					</button>
+				</form>
+			</div>
 		</>
 	);
 }

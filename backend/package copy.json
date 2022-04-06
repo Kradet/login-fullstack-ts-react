@@ -1,13 +1,13 @@
 {
-  "name": "api-login",
+  "name": "api login",
   "version": "1.0.0",
-  "description": "backend de la aplicación de login",
+  "description": "backend de la aplicacion de login",
   "main": "index.js",
   "scripts": {
-    "start": "cross-env NODE_ENV=production node index.js",
+    "start": "ts-node src/index.ts",
     "build": "tsc",
-    "dev": "cross-env NODE_ENV=development ts-node src/index.ts",
-    "production": "cross-env NODE_ENV=production node run index.js"
+    "dev": "nodemon src/index.ts --exec ts-node",
+    "production": "node run dist/index.js"
   },
   "engines": {
     "node": "16.0.0"

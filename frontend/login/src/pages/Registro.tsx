@@ -1,6 +1,7 @@
 import { ChangeEvent, useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { ObtenerDatosLocales } from "../hooks/useLocalStorage";
+import "../styles/login.css";
 
 export function Registro() {
 	const usuario = ObtenerDatosLocales("usuario");
@@ -52,14 +53,15 @@ export function Registro() {
 			}),
 		};
 
-		const peticion = await fetch("http://localhost:4000/api", requestInit);
-		
-		if (await peticion.status === 400) {
+		/* const peticion = await fetch("http://localhost:4000/api", requestInit); */
+		const peticion = await fetch(`${process.env.REACT_APP_API}`, requestInit);
+
+		if ((await peticion.status) === 400) {
 			alert("El usuario ya existe, intente con uno diferente");
 			return;
 		}
-		
-		if(await peticion.status === 200){
+
+		if ((await peticion.status) === 200) {
 			alert("Usuario creado correctamente, ingrese con su nuevo usuario");
 			navigate("/login");
 		}
@@ -69,37 +71,71 @@ export function Registro() {
 
 	return (
 		<>
-			<h1>Registro</h1>
-			<form action="" method="post" onSubmit={handleSubmit}>
-				<div className="">
-					<label htmlFor="username">Nombre de usuario: </label>
-					<input
-						type="text"
-						id="username"
-						name="username"
-						onChange={handleChange}
-					/>
-				</div>
-				<div className="">
-					<label htmlFor="password">Contraseña: </label>
-					<input
-						type="password"
-						id="password"
-						name="password"
-						onChange={handleChange}
-					/>
-				</div>
-				<div className="">
-					<label htmlFor="repeatpassword">Repetir contraseña: </label>
-					<input
-						type="password"
-						id="repeatpassword"
-						name="repeatpassword"
-						onChange={handleChange}
-					/>
-				</div>
-				<button type="submit">Registrarse</button>
-			</form>
+			<div className="ImgTarjeta">
+				<div className="ImgSide"></div>
+				<form
+					action=""
+					method="post"
+					onSubmit={handleSubmit}
+					className="Form"
+				>
+					<h1 className="FormText">Registro</h1>
+					<div className="FormLabelContainer">
+						<div className="FormLabel">
+							<label
+								htmlFor="username"
+								className="FormText FormTextLabel"
+							>
+								Nombre de usuario
+							</label>
+							<br />
+							<input
+								type="text"
+								id="username"
+								name="username"
+								onChange={handleChange}
+								className="FormLabelInput"
+							/>
+						</div>
+						<div className="FormLabel">
+							<label
+								htmlFor="password"
+								className="FormText FormTextLabel"
+							>
+								Contraseña
+							</label>
+							<br />
+							<input
+								type="password"
+								id="password"
+								name="password"
+								onChange={handleChange}
+								className="FormLabelInput"
+							/>
+						</div>
+						<div className="FormLabel">
+							<label
+								htmlFor="repeatpassword"
+								className="FormText FormTextLabel"
+							>
+								Repetir contraseña
+							</label>
+							<br />
+							<input
+								type="password"
+								id="repeatpassword"
+								name="repeatpassword"
+								onChange={handleChange}
+								className="FormLabelInput"
+							/>
+						</div>
+					</div>
+
+					<button type="submit" className="Btn BtnText">
+						Registrarse
+					</button>
+				</form>
+			</div>
 		</>
 	);
 }

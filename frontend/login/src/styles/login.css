@@ -1,0 +1,89 @@
+.ImgTarjeta {
+	display: grid;
+	grid-template-columns: 1fr 2fr;
+	width: 70%;
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	height: 70vh;
+	border: 1px solid #fff;
+	border-radius: 25px;
+}
+
+.ImgSide {
+	background: url("../images/side-login.jpg");
+	background-size: cover;
+	background-position: center;
+	border-radius: 25px;
+}
+
+.Form {
+	/* background-color: #fff; */
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: space-around;
+	border-radius: 25px;
+	box-shadow: 0 16px 16px rgba(0, 0, 0, 0.3);
+	background-color: rgba(255, 255, 255, 0.07);
+	backdrop-filter: blur(10px);
+	width: 100%;
+	/* position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	height: 50vh; */
+}
+
+.FormText {
+	color: #fff;
+}
+.FormLabelContainer {
+	padding: 0 10px;
+}
+.FormLabel {
+	margin-top: 10px;
+}
+.FormTextLabel {
+	font-size: 20px;
+}
+.FormLabelInput {
+	width: 100%;
+	color: #fff;
+	font-size: 20px;
+	padding: 5px 10px;
+	/* background-color: rgba(0, 0, 0, 0.4); */
+	background: none;
+	border: none;
+	/* border-radius: 15px; */
+	border-bottom: 3px solid #fff;
+}
+
+.FormLabelInput:focus {
+	outline: none;
+	background-color: rgba(0, 0, 0, 0.4);
+	border-bottom: 4px solid #896ee5;
+}
+
+.Btn {
+	width: 50%;
+	margin: 0 auto;
+	height: 50px;
+	font-size: 25px;
+	background-color: #5a3ac9;
+	border: none;
+	border-radius: 25px;
+}
+.Btn:hover {
+	background-color: #896ee5;
+	cursor: pointer;
+}
+.Btn:active {
+	background-color: #5a3ac9;
+}
+
+.BtnText {
+	text-decoration: none;
+	color: #fff;
+}

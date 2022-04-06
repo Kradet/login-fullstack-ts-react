@@ -1,0 +1,55 @@
+.Card {
+    display: flex;
+    justify-content: center;
+    border-radius: 25px;
+    box-shadow: 0 16px 16px rgba(0, 0, 0, 0.3);
+    background-color: rgba(255, 255, 255, 0.07);
+    backdrop-filter: blur(10px);
+    width: 40%;
+	position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.CardBody{
+    width: 100%;
+    height: 50vh;
+    display: flex;
+    flex-direction: column;
+    justify-items: center;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.CardTitle {
+    color: #fff;
+}
+
+.CardFooter{
+    width: 100%;
+    height: 50%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+}
+.CardBtn{
+    width: 50%;
+    margin: 0 auto;
+    height: 50px;
+    font-size: 25px;
+    background-color: #5A3AC9;
+    border: none;
+    border-radius: 25px;
+}
+.CardBtn:hover{
+    background-color: #896EE5;
+    cursor: pointer;
+}
+.CardBtn:active{
+    background-color: #5A3AC9;
+}
+.BtnText{
+    text-decoration: none;
+    color: #fff;
+}

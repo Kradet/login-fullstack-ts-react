@@ -1,6 +1,8 @@
+/* Si estamos en  entorno de desarrollo usamos las variables de entorno*/
+process.env.NODE_ENV==="development"? require("dotenv").config():null;
+
 /* Importamos las librerías necesarias */
 import express, { Application } from "express";
-
 
 /* Importamos las rutas */
 import UsuarioRouter from "./routes/usuarios.routes";
@@ -11,7 +13,7 @@ export class App {
 
 	constructor(private port?: number) {
 		this.app = express();
-		this.app.use(this.cors());
+		this.app.use(this.cors({origin:"*"}));
 		this.settings();
 		this.middlewares();
 		this.routes();
@@ -39,10 +41,11 @@ export class App {
 					);
 				}
 			},
-		}; */
+		};
 
-		//this.app.use("/api", this.cors(corsOptions), UsuarioRouter);
-		this.app.use("/api",this.cors(), UsuarioRouter);
+		this.app.use("/api", this.cors(corsOptions), UsuarioRouter); */
+		/* this.app.use("/api",this.cors({origin:"*"}), UsuarioRouter); */
+		this.app.use("/api", UsuarioRouter);
 	}
 
 	async Listen() {

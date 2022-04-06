@@ -9,7 +9,6 @@ export async function GetUsuarios(
 ): Promise<Response> {
 	const con = await Conectar();
 	const usuarios = await con.query("select id, username from usuarios");
-
 	return res.json(usuarios[0]);
 }
 

@@ -1,0 +1,11 @@
+.Pagina{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.TextoPagina{
+    font-size: 50px;
+    color: #fff;
+}

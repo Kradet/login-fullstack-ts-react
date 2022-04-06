@@ -1,6 +1,8 @@
 import { Link, useNavigate } from "react-router-dom";
 import { useEffect } from "react";
 import { ObtenerDatosLocales } from "../hooks/useLocalStorage";
+import { AiOutlineUser } from "react-icons/ai";
+import "../styles/card.css";
 
 export function Bienvenida() {
 	const usuario = ObtenerDatosLocales("usuario");
@@ -15,14 +17,20 @@ export function Bienvenida() {
 	}, []); /* Al tener arreglo vacío se usa al cargar el componente */
 
 	return (
-		<div>
-			<h1>Bienvenido</h1>
-			<button>
-				<Link to="/login">Iniciar sesión</Link>
-			</button>
-			<button>
-				<Link to="/registro">Registrarse</Link>
-			</button>
+		<div className="Card">
+			<div className="CardBody">
+				<h1 className="CardTitle">
+					Bienvenido <AiOutlineUser />
+				</h1>
+				<div className="CardFooter">
+					<button className="CardBtn">
+						<Link to="/login" className="BtnText">Iniciar sesión</Link>
+					</button>
+					<button className="CardBtn">
+						<Link to="/registro" className="BtnText">Registrarse</Link>
+					</button>
+				</div>
+			</div>
 		</div>
 	);
 }
